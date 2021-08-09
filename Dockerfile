@@ -33,7 +33,7 @@ RUN wget -O /usr/local/bin/gomplate \
   && chmod +x /usr/local/bin/gomplate
 
 
-FROM registry.access.redhat.com/ubi8/ubi@sha256:283de34760f79faa4b8e19151a47cc642b25554b98f5948c47fe8b9243f230b1
+FROM registry.access.redhat.com/ubi8/ubi
 
 # Dex connectors, such as GitHub and Google logins require root certificates.
 # Proper installations should manage those certificates, but it's a bad user
