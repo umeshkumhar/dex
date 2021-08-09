@@ -33,14 +33,14 @@ RUN wget -O /usr/local/bin/gomplate \
   && chmod +x /usr/local/bin/gomplate
 
 
-FROM alpine:3.14.0
+FROM registry.access.redhat.com/ubi8/ubi@sha256:283de34760f79faa4b8e19151a47cc642b25554b98f5948c47fe8b9243f230b1
 
 # Dex connectors, such as GitHub and Google logins require root certificates.
 # Proper installations should manage those certificates, but it's a bad user
 # experience when this doesn't work out of the box.
 #
 # OpenSSL is required so wget can query HTTPS endpoints for health checking.
-RUN apk add --no-cache --update ca-certificates openssl
+RUN yum install -y --disableplugin=subscription-manager wget ca-certificates openssl
 
 RUN mkdir -p /var/dex
 RUN chown -R 1001:1001 /var/dex
