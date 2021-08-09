@@ -40,6 +40,7 @@ FROM registry.access.redhat.com/ubi8/ubi@sha256:283de34760f79faa4b8e19151a47cc64
 # experience when this doesn't work out of the box.
 #
 # OpenSSL is required so wget can query HTTPS endpoints for health checking.
+
 RUN yum install -y --disableplugin=subscription-manager wget ca-certificates openssl
 
 RUN mkdir -p /var/dex
